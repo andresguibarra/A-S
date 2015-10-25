@@ -1,0 +1,79 @@
+﻿@model MVCPagina.Models.MailModel
+@{
+    ViewBag.Title = "Contáctenos";
+}
+
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                @{if (ViewBag.Message != null)
+                {
+                    <div class="alert alert-success animated fadeOut" style="-webkit-animation-duration: 3s; -webkit-animation-delay: 1s;" role="alert">
+
+                        <span>@ViewBag.Message</span>
+
+                    </div>
+                }}
+                @{if (ViewBag.Error != null)
+                {
+                    <div class="alert alert-danger animated fadeOut" style="-webkit-animation-duration: 3s; -webkit-animation-delay: 1s;" role="alert">
+
+                        <span>@ViewBag.Error</span>
+
+                    </div>
+                }}
+                <h2>Contáctenos</h2>
+                <hr class="star-primary">
+                <p>Consulte acerca de la solución que está buscando y le responderemos a la brevedad</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                @using (Html.BeginForm("EnviarMail", "Home", FormMethod.Post))
+                {
+                    @*<form name="sentMessage" id="contactForm" novalidate>*@
+                    <form role="form" name="contact" id="formContact">
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Nombre</label>
+                                <input type="text" class="form-control" placeholder="@Resources.Resource.Name" id="name" name="name" required data-validation-required-message="@Resources.Resource.NombreValidacion">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Email</label>
+                                <input type="email" class="form-control" placeholder="@Resources.Resource.Email" id="email" name="email" required data-validation-required-message="@Resources.Resource.EmailValidacion">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Teléfono</label>
+                                <input type="tel" class="form-control" placeholder="@Resources.Resource.PhoneNumber" id="phone" name="phone" required data-validation-required-message="@Resources.Resource.TelefonoValidacion">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Mensaje</label>
+                                <textarea rows="5" class="form-control" placeholder="@Resources.Resource.Message" id="message" name="message" required data-validation-required-message="@Resources.Resource.MensajeValidacion"></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <button type="submit" class="btn btn-success btn-lg">@Resources.Resource.Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+</section>
