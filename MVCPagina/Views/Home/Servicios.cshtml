@@ -1,53 +1,35 @@
-﻿@{
+﻿@model List<MVCPagina.Models.ServicioModel>
+
+@{
     Layout = null;
 }
-<div class="services">
-    <section class="pricecol">
-        <div class="icon">
-            <i class="icon-magic"></i>
-        </div>
-        <h3><span>Web Design</span></h3>
-        <ul>
-            <li><hr class="soften">Etiam sit amet orci</li>
+<section id="servicios">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-4">
+                    <div class="pricecol">
+                        @for (int i = 0; i < @item.CantidadIconos; i++)
+                        {
+                            <i class="fa fa-star"></i>
+                        }
+                        <h3><span>@item.Nombre</span></h3>
+                        <ul>
+                            <li><span class="feature">@item.Precio</span></li>
+                            @foreach (var feature in @item.Features)
+                            {
+                                <li><span class="feature">@feature</span></li>
+                            }
 
-            <li><hr class="soften">Duis leo sed fringilla</li>
-            <li><hr class="soften">Mauris sit amet nibh</li>
-            <li><hr class="soften">Donec sodales sagittis</li>
-        </ul>
-        <p>
-            <a class="button"><span>Sign Up</span></a>
-        </p>
-    </section>
+                        </ul>
+                        <p>
+                            <a class="button"><span>Más Info...</span></a>
+                        </p>
+                    </div>
+                </div>
+            }
 
-    @*<section class="pricecol">
-        <div class="icon">
-            <i class="icon-leaf"></i>
         </div>
-        <h3><span>Development</span></h3>
-        <ul>
-            <li>Etiam sit amet orci</li>
-            <li>Duis leo sed fringilla</li>
-            <li>Mauris sit amet nibh</li>
-            <li>Donec sodales sagittis</li>
-        </ul>
-        <p>
-            <a class="button"><span>Sign Up</span></a>
-        </p>
-    </section>*@
-
-    @*<section class="pricecol">
-        <div class="icon">
-            <i class="icon-link"></i>
-        </div>
-        <h3><span>Support</span></h3>
-        <ul>
-            <li>Etiam sit amet orci</li>
-            <li>Duis leo sed fringilla</li>
-            <li>Mauris sit amet nibh</li>
-            <li>Donec sodales sagittis</li>
-        </ul>
-        <p>
-            <a class="button"><span>Sign Up</span></a>
-        </p>
-    </section>*@
-</div>
+    </div>
+</section>

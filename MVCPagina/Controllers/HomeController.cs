@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVCPagina.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
@@ -11,7 +12,28 @@ namespace MVCPagina.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var listaServicios = new List<ServicioModel>();
+
+            listaServicios.Add(getServicio());
+            listaServicios.Add(getServicio());
+            listaServicios.Add(getServicio());
+            return View(listaServicios);
+        }
+
+        private ServicioModel getServicio() 
+        {
+            ServicioModel servicio = new ServicioModel();
+            servicio.Nombre = "Básico";
+            servicio.Features.Add("Una pagina");
+            servicio.Features.Add("Mantenimiento por 2 meses");
+            servicio.Features.Add("Alta en buscadores");
+            servicio.Features.Add("Estilo personalizado");
+            servicio.Features.Add("Sin administracion personal");
+            servicio.Precio = "$1400";
+            servicio.CantidadIconos = 1;
+
+            return servicio;
+
         }
 
         public ActionResult About()
