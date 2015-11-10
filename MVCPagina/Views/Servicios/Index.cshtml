@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MVCPagina.Models.Servicio>
+
+@{
+    ViewBag.Title = "Servicios";
+}
+<div class="container" style="margin-top:20em;">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Servicios</h2>
+
+            <p>
+                @Html.ActionLink(@Resources.Resource.CrearServicio, "Create")
+
+
+            </p>
+
+            <p>@Html.ActionLink(@Resources.Resource.AddFeature, "Index", "Features")</p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Precio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CantidadIconos)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Precio)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CantidadIconos)
+                        </td>
+                        <td>
+                            @Html.ActionLink(@Resources.Resource.Editar, "Edit", new { id = item.ServicioId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ServicioId }) |
+                            @Html.ActionLink(@Resources.Resource.Eliminar, "Delete", new { id = item.ServicioId })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
