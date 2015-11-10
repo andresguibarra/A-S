@@ -117,11 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddFeature" xml:space="preserve">
+    <value>Agregar Característica</value>
+  </data>
   <data name="Cerrar" xml:space="preserve">
     <value>Cerrar</value>
   </data>
   <data name="Cliente" xml:space="preserve">
     <value>Cliente</value>
+  </data>
+  <data name="CrearServicio" xml:space="preserve">
+    <value>Crear Servicio</value>
+  </data>
+  <data name="Editar" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="Eliminar" xml:space="preserve">
+    <value>Eliminar</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>

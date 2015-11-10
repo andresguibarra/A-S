@@ -1,4 +1,4 @@
-﻿@model List<MVCPagina.Models.ServicioModel>
+﻿@model IEnumerable<MVCPagina.Models.Servicio>
 
 @{
     Layout = null;
@@ -17,9 +17,9 @@
                         <h3><span>@item.Nombre</span></h3>
                         <ul>
                             <li><span class="feature">@item.Precio</span></li>
-                            @foreach (var feature in @item.Features)
+                            @foreach (var servicioFeature in @item.ServicioFeatures)
                             {
-                                <li><span class="feature">@feature</span></li>
+                                <li><span class="feature">@servicioFeature.Feature</span></li>
                             }
 
                         </ul>

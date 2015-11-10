@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Agregar Característica.
+        /// </summary>
+        internal static string AddFeature {
+            get {
+                return ResourceManager.GetString("AddFeature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Cerrar.
         /// </summary>
         internal static string Cerrar {
@@ -75,6 +84,33 @@ namespace Resources {
         internal static string Cliente {
             get {
                 return ResourceManager.GetString("Cliente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Crear Servicio.
+        /// </summary>
+        internal static string CrearServicio {
+            get {
+                return ResourceManager.GetString("CrearServicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Editar.
+        /// </summary>
+        internal static string Editar {
+            get {
+                return ResourceManager.GetString("Editar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Eliminar.
+        /// </summary>
+        internal static string Eliminar {
+            get {
+                return ResourceManager.GetString("Eliminar", resourceCulture);
             }
         }
         

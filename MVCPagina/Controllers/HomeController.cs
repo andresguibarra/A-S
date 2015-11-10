@@ -12,29 +12,30 @@ namespace MVCPagina.Controllers
     {
         public ActionResult Index()
         {
-            var listaServicios = new List<ServicioModel>();
+            //var listaServicios = new List<ServicioModel>();
 
-            listaServicios.Add(getServicio());
-            listaServicios.Add(getServicio());
-            listaServicios.Add(getServicio());
-            return View(listaServicios);
+            //listaServicios.Add(getServicio());
+            //listaServicios.Add(getServicio());
+            //listaServicios.Add(getServicio());
+            //return View(listaServicios);
+            return View();
         }
 
-        private ServicioModel getServicio() 
-        {
-            ServicioModel servicio = new ServicioModel();
-            servicio.Nombre = "Básico";
-            servicio.Features.Add("Una pagina");
-            servicio.Features.Add("Mantenimiento por 2 meses");
-            servicio.Features.Add("Alta en buscadores");
-            servicio.Features.Add("Estilo personalizado");
-            servicio.Features.Add("Sin administracion personal");
-            servicio.Precio = "$1400";
-            servicio.CantidadIconos = 1;
+        //private ServicioModel getServicio() 
+        //{
+        //    ServicioModel servicio = new ServicioModel();
+        //    servicio.Nombre = "Básico";
+        //    servicio.Features.Add("Una pagina");
+        //    servicio.Features.Add("Mantenimiento por 2 meses");
+        //    servicio.Features.Add("Alta en buscadores");
+        //    servicio.Features.Add("Estilo personalizado");
+        //    servicio.Features.Add("Sin administracion personal");
+        //    servicio.Precio = "$1400";
+        //    servicio.CantidadIconos = 1;
 
-            return servicio;
+        //    return servicio;
 
-        }
+        //}
 
         public ActionResult About()
         {
