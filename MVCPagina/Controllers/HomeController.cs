@@ -5,20 +5,21 @@ using System.Linq;
 using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
-
+using System.Data;
+using System.Data.Entity;
 namespace MVCPagina.Controllers
 {
     public class HomeController : Controller
     {
+
+        //private SolutionsDB db = new SolutionsDB();
         public ActionResult Index()
         {
-            //var listaServicios = new List<ServicioModel>();
-
-            //listaServicios.Add(getServicio());
-            //listaServicios.Add(getServicio());
-            //listaServicios.Add(getServicio());
-            //return View(listaServicios);
-            return View();
+            using (var db = new SolutionsDB())
+            {
+                //var features = db.Features.Include();
+                return View(db.Servicios.Include(f => f.Features).ToList());
+            }
         }
 
         //private ServicioModel getServicio() 
@@ -45,14 +46,14 @@ namespace MVCPagina.Controllers
         public ActionResult Contact()
         {
             return View();
-        } 
+        }
 
         public ActionResult Mensaje()
         {
             ViewBag.Message = "El mail ha sido enviado correctamente.";
             return View("Contact");
         }
-        public  ActionResult Error()
+        public ActionResult Error()
         {
             ViewBag.Error = "Lo sentimos, en este momento el servidor no pudo enviar su consulta. Intente mas tarde por favor.";
             return View("Contact");

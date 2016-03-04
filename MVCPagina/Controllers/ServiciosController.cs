@@ -70,6 +70,9 @@ namespace MVCPagina.Controllers
             {
                 return HttpNotFound();
             }
+            //var features = db.ServicioFeatures.Where(m => m.ServicioId == id).Select(sv => sv.Feature).ToList();
+            var features = db.Features.ToList();
+            ViewBag.Features = new MultiSelectList(features, "FeatureId", "Nombre");
             return View(servicio);
         }
 

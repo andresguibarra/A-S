@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MVCPagina.Models.Feature>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div class="container">
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Servicio.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Servicio.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.FeatureId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.FeatureId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.FeatureId })
+                </td>
+            </tr>
+        }
+
+    </table>
+    
+</div>

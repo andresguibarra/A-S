@@ -17,9 +17,9 @@
                         <h3><span>@item.Nombre</span></h3>
                         <ul>
                             <li><span class="feature">@item.Precio</span></li>
-                            @foreach (var servicioFeature in @item.ServicioFeatures)
+                            @foreach (var servicioFeature in @item.Features)
                             {
-                                <li><span class="feature">@servicioFeature.Feature</span></li>
+                                <li><span class="feature">@servicioFeature.Descripcion</span></li>
                             }
 
                         </ul>

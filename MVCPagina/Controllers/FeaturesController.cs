@@ -7,7 +7,6 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MVCPagina.Models;
-using AutoMapper;
 
 namespace MVCPagina.Controllers
 {
@@ -16,64 +15,31 @@ namespace MVCPagina.Controllers
         private SolutionsDB db = new SolutionsDB();
 
         // GET: Features
-        public ActionResult Index(int? id)
+        public ActionResult Index()
         {
-            return View();
+            var features = db.Features.Include(f => f.Servicio);
+            return View(db.Features.ToList());
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddFeature([Bind(Include = "Nombre")] FeatureViewModel featureVM)
+
+        // GET: Features/Details/5
+        public ActionResult Details(int? id)
         {
-
-            Mapper.CreateMap<FeatureViewModel, Feature>();
-
-
-            Feature feature = Mapper.Map<Feature>(featureVM);
-            //var servicio = db.Servicios.Find(id);
-
-            //if (servicio != null)
-            //{
-            //    var feature1 = new Feature { Nombre = feature };
-            //    var servicioFeature = new ServicioFeature
-            //    {
-            //        Servicio = servicio,
-            //        Feature = feature1,
-            //    };
-
-            //    db.ServicioFeatures.Add(servicioFeature);
-            //    db.SaveChanges();
-            //}
-            if (ModelState.IsValid)
+            if (id == null)
             {
-                db.Features.Add(feature);
-                db.SaveChanges();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            //var features = servicio.ServicioFeatures.Select(mc => mc.Feature).OrderBy(x => x.FeatureId);
-            //var features = db.Features;
-            return Details();
-        }
-
-        // GET: Features/Details/servicioId=5
-        public ActionResult Details()
-        {
-            //if (servicioId == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-            //var servicio = db.Servicios.Find(servicioId);
-            //if (servicio == null)
-            //{
-            //    return HttpNotFound();
-            //}
-
-            //var features = servicio.ServicioFeatures.Select(mc => mc.Feature).OrderBy(x => x.FeatureId);
-            return PartialView("Features", db.Features);
+            Feature feature = db.Features.Find(id);
+            if (feature == null)
+            {
+                return HttpNotFound();
+            }
+            return View(feature);
         }
 
         // GET: Features/Create
         public ActionResult Create()
         {
+            ViewBag.ServicioId = new SelectList(db.Servicios, "ServicioId", "Nombre");
             return View();
         }
 
@@ -82,7 +48,7 @@ namespace MVCPagina.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FeatureId,Nombre")] Feature feature)
+        public ActionResult Create([Bind(Include = "FeatureId,Descripcion,ServicioId")] Feature feature)
         {
             if (ModelState.IsValid)
             {
@@ -91,6 +57,7 @@ namespace MVCPagina.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ServicioId = new SelectList(db.Servicios, "ServicioId", "Nombre", feature.ServicioId);
             return View(feature);
         }
 
@@ -106,6 +73,7 @@ namespace MVCPagina.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ServicioId = new SelectList(db.Servicios, "ServicioId", "Nombre", feature.ServicioId);
             return View(feature);
         }
 
@@ -114,7 +82,7 @@ namespace MVCPagina.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FeatureId,Nombre")] Feature feature)
+        public ActionResult Edit([Bind(Include = "FeatureId,Descripcion,ServicioId")] Feature feature)
         {
             if (ModelState.IsValid)
             {
@@ -122,6 +90,7 @@ namespace MVCPagina.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ServicioId = new SelectList(db.Servicios, "ServicioId", "Nombre", feature.ServicioId);
             return View(feature);
         }
 

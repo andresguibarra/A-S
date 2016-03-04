@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCPagina", "MVCPagina\MVCPagina.csproj", "{63C56A00-B4B6-4021-9C56-9B36E2BE9797}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{58FD0C23-9EB4-4A32-8EE5-A1FD19787F94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{63C56A00-B4B6-4021-9C56-9B36E2BE9797}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63C56A00-B4B6-4021-9C56-9B36E2BE9797}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63C56A00-B4B6-4021-9C56-9B36E2BE9797}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58FD0C23-9EB4-4A32-8EE5-A1FD19787F94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58FD0C23-9EB4-4A32-8EE5-A1FD19787F94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58FD0C23-9EB4-4A32-8EE5-A1FD19787F94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58FD0C23-9EB4-4A32-8EE5-A1FD19787F94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
