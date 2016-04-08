@@ -153,6 +153,9 @@
   <data name="Message" xml:space="preserve">
     <value>Mensaje</value>
   </data>
+  <data name="MSLDescripcion" xml:space="preserve">
+    <value>MSL pidió rediseñar su antiguo sitio web y añadir funcionalidades completamente nuevas que se integran con sus servicios de reservas online. El nuevo sitio está hecho desde cero combinando funcionalidades con un estilo visual llamativo.</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Nombre</value>
   </data>
